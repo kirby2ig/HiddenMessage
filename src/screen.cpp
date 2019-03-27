@@ -153,7 +153,7 @@ void screen::randomize()
 	{
 		for(int x = 0; x < width; x++)
 		{
-			char randChar = (rand() % 222) + 32;
+			char randChar = (rand() % 127) + 32;
 			setCharacterAt(x, y, randChar, NORMAL_COLOR);
 		}
 	}

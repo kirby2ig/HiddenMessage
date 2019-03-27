@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
 	char* centerDisplay = new char[length];
 	for(int i = 0; i < length; i++)
 	{
-		*(centerDisplay + i) = (rand() % 222) + 32; //Pick random characters
+		*(centerDisplay + i) = (rand() % 127) + 32; //Pick random characters
 
 	}
 
