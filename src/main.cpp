@@ -64,7 +64,7 @@ int main(int argc, char* argv[])
 		if(ch == 'q')
 			run = false;
 		//Randomize message
-		if(rand() < (RAND_MAX / FPS) && lettersShown < length)
+		if(rand() < (RAND_MAX / (FPS / 3)) && lettersShown < length)
 		{
 			lettersShown++;
 		}
