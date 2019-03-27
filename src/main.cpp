@@ -29,7 +29,8 @@ int main(int argc, char* argv[])
 	char* centerDisplay = new char[length];
 	for(int i = 0; i < length; i++)
 	{
-		*(centerDisplay + i) = (char) 177; //Initialize to weird dotted block thingies
+		*(centerDisplay + i) = (rand() % 222) + 32; //Pick random characters
+
 	}
 
 	//Randomize the order that we reveal the characters
