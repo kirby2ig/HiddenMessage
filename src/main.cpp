@@ -4,7 +4,7 @@
 #include <ctime> 
 #include <unistd.h>
 
-#define FPS (60)
+#define FPS (30)
 #define FRAMETIME (1000000 / FPS)
 
 int main(int argc, char* argv[])
