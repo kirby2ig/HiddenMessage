@@ -6,9 +6,6 @@
 #include <cstdlib>
 #include <ctime>
 
-#define NORMAL_COLOR 1
-#define GREEN_COLOR 2
-
 screen::screen(int width, int height)
 {
 	initscr();
@@ -120,6 +117,13 @@ void screen::printText(char* text, int length, int x, int y)
 			printX = x;
 		}
 	}
+}
+
+void screen::printText(char* text, int length, int x, int y, int color)
+{
+	attron(COLOR_PAIR(color));
+	printText(text, length, x, y);
+	attroff(COLOR_PAIR(color));
 }
 
 void screen::printTextCentered(char* text, int length)
