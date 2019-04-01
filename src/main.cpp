@@ -15,26 +15,36 @@ int main(int argc, char* argv[])
 		std::cout << "Too little arguments" << std::endl;
 		return 1;
 	}
-	if(argc > 2)
+
+	char** randomText = new char*[argc - 1];
+	for(int i = 1; i < argc; i++)
 	{
-		std::cout << "Too many arguments" << std::endl;
-		return 1;
+		char* nextLine = argv[i];
+		int len = strlen(nextLine);
+		*(randomText + i - 1) = new char[len];
+		strcpy(*(randomText + i - 1), argv[i]);
 	}
-	char* randomText = argv[1];
-	int length = strlen(randomText);
 	
 	std::cout << length << std::endl;
 
 	//Create a buffer for the text we are writing in the center
-	char* centerDisplay = new char[length];
-	for(int i = 0; i < length; i++)
+	char** centerDisplay = new char*[argc - 1];
+	for(int i = 0; i < argc - 1; i++)
 	{
-		*(centerDisplay + i) = (rand() % 127) + 32; //Pick random characters
-
+		int len = strlen(*(randomText + i));
+		*(centerDisplay + i) = new char[len];
+		for(int j = 0; j < len; j++)
+		{
+			*(*(centerDisplay + i) + j) = (rand() % 127) + 32; //Pick random characters
+		}
 	}
 
 	//Randomize the order that we reveal the characters
-	int* randomIndexOrder = new int[length];
+	int** randomIndexOrder = new int*[length];
+	for(int i = 0; i < length; i ++)
+	{
+		int len = strlen(*(randomText + i)); // Need to convert remaining code to use 2d arrays for multiple lines
+	}
 	for(int i = 0; i < length; i++)
 	{
 		*(randomIndexOrder + i) = i;
@@ -82,6 +92,11 @@ int main(int argc, char* argv[])
 
 	delete[] centerDisplay;
 	delete[] randomIndexOrder;
+	for(int i = 0; i < argc - 1; i++)
+	{
+		delete[] *(randomText + i);
+	}
+	delete[] randomText;
 
 	return 0;
 }
