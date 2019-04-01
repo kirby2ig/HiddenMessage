@@ -5,9 +5,16 @@
 
 class screen
 {
+    private:
+        char** grid;
+        int width;
+        int height;
+	bool doColor;
     public:
 	screen();
         screen(int width, int height);
+	inline int getWidth() {return width;}
+	inline int getHeight() {return height;}
         ~screen();
 	int init();
         void setCharacterAt(int x, int y, char character);
@@ -21,11 +28,6 @@ class screen
         void print(char* string, int length);
 	int getTypedCharacter();
 	void randomize();
-    private:
-        char** grid;
-        int width;
-        int height;
-	bool doColor;
 }
 ;
 
