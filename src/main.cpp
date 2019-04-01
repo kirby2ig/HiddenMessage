@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 	{
 		char* nextLine = argv[i];
 		int len = strlen(nextLine);
-		*(randomText + i - 1) = new char[len];
+		*(randomText + i - 1) = new char[len + 1];
 		strcpy(*(randomText + i - 1), argv[i]);
 	}
 	
@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 	for(int i = 0; i < argc - 1; i++)
 	{
 		int len = strlen(*(randomText + i));
-		*(centerDisplay + i) = new char[len];
+		*(centerDisplay + i) = new char[len+ 1];
 		for(int j = 0; j < len; j++)
 		{
 			*(*(centerDisplay + i) + j) = (rand() % 127) + 32; //Pick random characters
